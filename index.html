@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ContaLabs - învață contabilitate prin lecții scurte și quiz-uri interactive.">
+  <title>ContaLabs | Învață contabilitate</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="ContaLabs acasă">
+        <span class="brand-mark">C<span>+</span></span>
+        <span>Conta<span class="brand-light">Labs</span></span>
+      </a>
+      <div class="topbar-actions">
+        <div class="streak" title="Răspunde la întrebări pentru a-ți menține ritmul">
+          <span>⚡</span><strong id="streak-count">0</strong><small>zile ritm</small>
+        </div>
+        <button class="icon-button" id="theme-toggle" aria-label="Schimbă tema">☼</button>
+        <div class="avatar">CL</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">LABORATORUL TĂU DE CONTABILITATE</p>
+          <h1>Înțelege cifrele.<br><em>Construiește claritate.</em></h1>
+          <p class="hero-text">Învață pas cu pas, testează-ți cunoștințele și transformă teoria contabilă în deprinderi practice.</p>
+          <button class="primary-button" id="start-button">Începe un quiz <span>→</span></button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="account-card">
+            <div class="card-top"><span>ECUAȚIA FUNDAMENTALĂ</span><span class="card-dot">•••</span></div>
+            <div class="equation"><b>Active</b><span>=</span><b>Capitaluri</b><span>+</span><b>Datorii</b></div>
+            <div class="mini-chart"><i style="height: 42%"></i><i style="height: 64%"></i><i style="height: 54%"></i><i style="height: 81%"></i><i style="height: 72%"></i><i style="height: 96%"></i></div>
+            <div class="chart-labels"><span>Ian</span><span>Feb</span><span>Mar</span><span>Apr</span><span>Mai</span><span>Iun</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Progresul tău">
+        <article class="stat-card"><div class="stat-icon mint">✓</div><div><span>Întrebări rezolvate</span><strong id="solved-count">0</strong></div><small id="solved-percent">0% din total</small></article>
+        <article class="stat-card"><div class="stat-icon coral">↗</div><div><span>Rată de succes</span><strong id="accuracy-count">—</strong></div><small>pe răspunsurile date</small></article>
+        <article class="stat-card"><div class="stat-icon gold">★</div><div><span>Puncte acumulate</span><strong id="points-count">0</strong></div><small>continuă să crești</small></article>
+      </section>
+
+      <section class="content-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">ALEGEREA TA</p><h2>Explorează materia</h2></div>
+          <button class="text-button" id="all-topics-button">Vezi toate capitolele <span>→</span></button>
+        </div>
+        <div class="topic-grid" id="topic-grid"></div>
+      </section>
+
+      <section class="practice-panel">
+        <div class="practice-copy">
+          <span class="pill">PRACTICĂ ZILNICĂ</span>
+          <h2>Fă-ți progresul<br>un obicei.</h2>
+          <p>Un răspuns corect astăzi înseamnă mai multă încredere la examen mâine.</p>
+          <button class="secondary-button" id="daily-button">Continuă antrenamentul <span>→</span></button>
+        </div>
+        <div class="practice-visual">
+          <div class="ring"><strong id="ring-value">0%</strong><span>completat</span></div>
+          <div class="note note-one">+10 XP <span>✓</span></div><div class="note note-two">Keep going <span>↗</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="quiz-modal" hidden>
+    <section class="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="quiz-title">
+      <button class="close-button" id="close-quiz" aria-label="Închide quiz-ul">×</button>
+      <div class="quiz-header"><div><p class="eyebrow">MODUL DE ANTRENAMENT</p><h2 id="quiz-title">Quiz contabilitate</h2></div><span class="question-counter" id="question-counter">1 / 10</span></div>
+      <div class="progress-track"><div id="quiz-progress"></div></div>
+      <div class="quiz-meta"><span id="quiz-topic">Toate capitolele</span><span id="quiz-difficulty">● ușor</span></div>
+      <h3 id="question-text"></h3>
+      <div class="answers" id="answers"></div>
+      <div class="explanation" id="explanation" hidden></div>
+      <div class="quiz-footer"><span id="feedback-label">Alege un răspuns</span><button class="primary-button next-button" id="next-button" disabled>Următoarea <span>→</span></button></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="quiz-data.js?v=2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
